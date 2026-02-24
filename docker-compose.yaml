@@ -1,0 +1,24 @@
+services:
+
+  backend:
+    build: ./Backend
+    container_name: mern_backend
+    restart: always
+    ports:
+      - "5000:4000"
+    environment:
+     - MONGO_URI=mongodb+srv://deepshrestha_13:deepShrestha@cluster0.ho0xy.mongodb.net/uber?retryWrites=true&w=majority
+
+  frontend:
+    build: ./Frontend
+    container_name: mern_frontend
+    restart: always
+    ports:
+      - "3000:80"
+    environment:
+     - VITE_BASE_URL=http://localhost:5000
+    depends_on:
+      - backend
+
+volumes:
+  mongo-data:
