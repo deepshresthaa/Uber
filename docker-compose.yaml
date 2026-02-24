@@ -7,7 +7,7 @@ services:
     ports:
       - "5000:4000"
     environment:
-     - MONGO_URI=mongodb+srv://deepshrestha_13:deepShrestha@cluster0.ho0xy.mongodb.net/uber?retryWrites=true&w=majority
+     - MONGO_URI=${MONGO_URI}
 
   frontend:
     build: ./Frontend
